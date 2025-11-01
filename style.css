@@ -20,7 +20,7 @@ body {
 }
 
 /* ===============================
-   KURSOR SAKURA KUSTOM
+  KURSOR SAKURA KUSTOM
    =============================== */
 html {
   /* Ganti 'assets/sakura-cursor.png' dengan path gambar Anda */
@@ -850,4 +850,90 @@ footer {
     /* Bergerak lebih jauh ke atas sambil memudar & berotasi */
     transform: translate(-50%, -180px) scale(1.2) rotate(90deg); 
   }
+}
+
+/* ===============================
+   STYLE UNTUK POP-UP FORMULIR
+   =============================== */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  
+  /* Sembunyikan secara default */
+  display: none; 
+  
+  /* Pusatkan kotak pop-up */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Tampilkan pop-up saat memiliki kelas .active */
+.popup-container.active {
+  display: flex;
+}
+
+.popup-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(109, 76, 90, 0.2);
+  
+  /* Animasi muncul */
+  transform: scale(0.9);
+  opacity: 0;
+  animation: popupFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes popupFadeIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#popup-gif {
+  width: 100%;
+  height: 180px; /* Atur tinggi GIF */
+  object-fit: contain; /* 'contain' agar GIF tidak terpotong */
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+#popup-message {
+  color: #6d4c5a; /* Warna teks utama Anda */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Style tombol OK (meniru tombol #btn-contact) */
+#popup-close-btn {
+  background: linear-gradient(135deg, #fad0c4, #e6b2ba);
+  border: 1px solid rgba(109, 76, 90, 0.3);
+  color: #6d4c5a;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 2.5rem;
+  border-radius: 50px;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Hapus 'cursor: pointer;' ini jika Anda masih memiliki masalah kursor */
+/* #popup-close-btn {
+  cursor: pointer; 
+} */
+
+#popup-close-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(230, 178, 186, 0.5);
 }
